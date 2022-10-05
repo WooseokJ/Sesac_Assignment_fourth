@@ -6,12 +6,25 @@
 //
 
 import UIKit
+import FirebaseAnalytics
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var crashClicked일부러: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        
+        Analytics.logEvent("share_image", parameters: [
+            "name": "고래밥", // userdefault or realm 에서 가져와 써도되고 String값을 지정해도된다
+          "full_text": "안녕",
+        ])
+        
+        Analytics.setDefaultEventParameters([
+          "level_name": "Caverns01",
+          "level_difficulty": 4
+        ])
+        
     }
 
 
