@@ -10,10 +10,12 @@ import FirebaseAnalytics
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var crashClicked일부러: UIButton!
+
+
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         Analytics.logEvent("share_image", parameters: [
             "name": "고래밥", // userdefault or realm 에서 가져와 써도되고 String값을 지정해도된다
@@ -26,7 +28,10 @@ class ViewController: UIViewController {
         ])
         
     }
-
+    
+    @IBAction func buttonClicked(_ sender: Any) {
+    }
+    
 
 }
 
