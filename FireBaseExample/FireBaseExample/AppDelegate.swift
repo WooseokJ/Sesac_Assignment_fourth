@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure() //파이어베이스에 xcode연결
         
+        // 사용자가 알림권한여부를 선택할떄(허용,거부할떄를 처리)
         // 원격 알림 시스템에 앱 등록(꼭 didFinishLaunchingWithOptions에 적기)
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
@@ -32,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         application.registerForRemoteNotifications()
         
+        // 파베가 apns 의 대리자로 설정하겠다는 부분
         // 메시지 대리자 설정(꼭 didFinishLaunchingWithOptions에 적기)
         Messaging.messaging().delegate = self
         
@@ -49,8 +51,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         
-        aboutRealmMigration()
-        
+//        aboutRealmMigration()
+        listConfig()
         
         return true
     }
@@ -63,14 +65,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
     }
     
-    
 }
 
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
     
+    //MARK: Step1,2,3 APNS 토큰을 받아와서 디바이스 토큰을 파베에 보낸다. (토큰받아오는걸 실패해도 파베내부에서 다시처리)
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        Messaging.messaging().apnsToken = deviceToken
+        Messaging.messaging().apnsToken = deviceToken // Step1,2,3를 다한다.
     }
     
     // forground일떄 알림오게 해주는 메소드(로컬/푸시 동일)
@@ -179,4 +181,23 @@ extension AppDelegate {
         )
         Realm.Configuration.defaultConfiguration = config
     }
+    
+    
+    func listConfig() {
+        let config = Realm.Configuration(schemaVersion: 3) { Migration, oldSchemaVersion in
+            if oldSchemaVersion < 1 { // DetailTodo,List 추가
+                
+            }
+            if oldSchemaVersion < 2 { // EmbeddedObject 추가
+                
+            }
+            if oldSchemaVersion < 3 { // detailTodo 에 deadline 추가
+                
+            }
+            
+        }
+        Realm.Configuration.defaultConfiguration = config
+
+    }
+    
 }
