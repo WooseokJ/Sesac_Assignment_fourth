@@ -1,8 +1,4 @@
-collection view APIs
-
-
-
-1. CollectionVIew 흐름
+## 1. CollectionVIew 흐름
 
 ios 6 :  collectionview 처음등장
 
@@ -29,7 +25,7 @@ List configuration은 compositional layout 기반으로 만들어짐(테이블�
 
 
 
-2. UIcollectionLayoutListconfiguration 
+## 2. UIcollectionLayoutListconfiguration 
 
 | list configuration                                           |
 | ------------------------------------------------------------ |
@@ -44,29 +40,31 @@ List configuration은 compositional layout 기반으로 만들어짐(테이블�
 
 
 
-3. UICollectionView.CellRegistration
+## 3. UICollectionView.CellRegistration
 
 - ios 14이후 등장한 Registeration API 로 셀재사용보다 쉽게 구현
 - 기존 Cell identifier,Xib대신 제네릭형태 사용, 새셀이 생성될떄마다 클로저가 호출
 
-4. UIContentConfiguration (프로토콜)
+## 4. UIContentConfiguration (프로토콜)
    - ContentView에 configuration을 제공하는 객체
    - UIListContentConfiguration(구조체)도 UIContentConfiguration(프로토콜) 채택
 
-5. UIListContentConfiguration
+## 5. UIListContentConfiguration
    - list base 컨텐츠 뷰를 구성하는 configuration으로 시스템 기본스타일 설정
 
-# UICollectionViewCompositionalLayout
+## 6.UICollectionViewCompositionalLayout
 
-<img src="/Users/apple/Library/Application Support/typora-user-images/스크린샷 2022-10-18 오후 5.51.00.png" width="400" height="500">
+<img src="https://user-images.githubusercontent.com/55547933/196401999-45092c79-a0b7-4d7b-8b91-e0d6186604e1.png" width="400" height="500">
 
-3가지 컴포넌트로 구성
+3가지 컴포넌트로 구성!
+
+
 
 - Section(NSCollectionLayoutSection) : 배경,Header,Footer갖을수있다.
 - Group(NScollectionLayoutGroup): group -> section에 주입 ,NScollectionLaoutDimenstion으로 크기설정가능
 - Item(NSCollectionLayoutItem): item -> Group에 주입,NScollectionLaoutDimenstion으로 크기설정가능
 
-## NSCollectionLayoutDimension
+## 7.NSCollectionLayoutDimension
 
 collectionView item 크기 결정하는 3가지 방법
 
