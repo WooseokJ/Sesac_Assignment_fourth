@@ -11,6 +11,7 @@
 		181C0D3F28F7940100DB2B43 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 181C0D3E28F7940100DB2B43 /* RealmSwift */; };
 		181C0D4128F799EC00DB2B43 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181C0D4028F799EC00DB2B43 /* Todo.swift */; };
 		181C0D4328F79BC000DB2B43 /* MigrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181C0D4228F79BC000DB2B43 /* MigrationViewController.swift */; };
+		183E1D2428FE4DBE00BE75A2 /* SampleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E1D2328FE4DBE00BE75A2 /* SampleCollectionViewController.swift */; };
 		18D412CE28F4ED5C007E62C9 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 18D412CD28F4ED5C007E62C9 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		18D412D028F4ED5C007E62C9 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 18D412CF28F4ED5C007E62C9 /* FirebaseCrashlytics */; };
 		18D412D228F4ED5C007E62C9 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 18D412D128F4ED5C007E62C9 /* FirebaseMessaging */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		181C0D4028F799EC00DB2B43 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		181C0D4228F79BC000DB2B43 /* MigrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationViewController.swift; sourceTree = "<group>"; };
+		183E1D2328FE4DBE00BE75A2 /* SampleCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCollectionViewController.swift; sourceTree = "<group>"; };
 		18D412D328F4F248007E62C9 /* FireBaseExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FireBaseExample.entitlements; sourceTree = "<group>"; };
 		E17A938128ED17E600618A18 /* FireBaseExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FireBaseExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E17A938428ED17E600618A18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				E17A938828ED17E600618A18 /* ViewController.swift */,
 				181C0D4028F799EC00DB2B43 /* Todo.swift */,
 				E17A938A28ED17E600618A18 /* Main.storyboard */,
+				183E1D2328FE4DBE00BE75A2 /* SampleCollectionViewController.swift */,
 				181C0D4228F79BC000DB2B43 /* MigrationViewController.swift */,
 				E17A938D28ED17E800618A18 /* Assets.xcassets */,
 				E17A938F28ED17E800618A18 /* LaunchScreen.storyboard */,
@@ -198,6 +201,7 @@
 				E17A938528ED17E600618A18 /* AppDelegate.swift in Sources */,
 				181C0D4328F79BC000DB2B43 /* MigrationViewController.swift in Sources */,
 				E17A938728ED17E600618A18 /* SceneDelegate.swift in Sources */,
+				183E1D2428FE4DBE00BE75A2 /* SampleCollectionViewController.swift in Sources */,
 				181C0D4128F799EC00DB2B43 /* Todo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

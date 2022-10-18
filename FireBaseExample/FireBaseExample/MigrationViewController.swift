@@ -6,7 +6,6 @@ class MigrationViewController: UIViewController {
 
     let localRealm = try! Realm()
     
-    @discardableResult
     override func viewDidLoad() {
         super.viewDidLoad()
         
