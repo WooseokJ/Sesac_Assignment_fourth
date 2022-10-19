@@ -14,6 +14,7 @@
 		183E1D4128FE8F6600BE75A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 183E1D4028FE8F6600BE75A2 /* Assets.xcassets */; };
 		183E1D4428FE8F6600BE75A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183E1D4228FE8F6600BE75A2 /* LaunchScreen.storyboard */; };
 		183E1D6828FE8FBC00BE75A2 /* SimpleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E1D6728FE8FBC00BE75A2 /* SimpleCollectionViewController.swift */; };
+		183E1D6A28FF8FB400BE75A2 /* DifferbleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E1D6928FF8FB400BE75A2 /* DifferbleCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		183E1D4A28FE8F6600BE75A2 /* week1617Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = week1617Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		183E1D5428FE8F6600BE75A2 /* week1617UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = week1617UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		183E1D6728FE8FBC00BE75A2 /* SimpleCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCollectionViewController.swift; sourceTree = "<group>"; };
+		183E1D6928FF8FB400BE75A2 /* DifferbleCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifferbleCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				183E1D3928FE8F6500BE75A2 /* SceneDelegate.swift */,
 				183E1D3B28FE8F6500BE75A2 /* SimpleTableViewController.swift */,
 				183E1D3D28FE8F6500BE75A2 /* Main.storyboard */,
+				183E1D6928FF8FB400BE75A2 /* DifferbleCollectionViewController.swift */,
 				183E1D6728FE8FBC00BE75A2 /* SimpleCollectionViewController.swift */,
 				183E1D4028FE8F6600BE75A2 /* Assets.xcassets */,
 				183E1D4228FE8F6600BE75A2 /* LaunchScreen.storyboard */,
@@ -237,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				183E1D6828FE8FBC00BE75A2 /* SimpleCollectionViewController.swift in Sources */,
+				183E1D6A28FF8FB400BE75A2 /* DifferbleCollectionViewController.swift in Sources */,
 				183E1D3C28FE8F6500BE75A2 /* SimpleTableViewController.swift in Sources */,
 				183E1D3828FE8F6500BE75A2 /* AppDelegate.swift in Sources */,
 				183E1D3A28FE8F6500BE75A2 /* SceneDelegate.swift in Sources */,
