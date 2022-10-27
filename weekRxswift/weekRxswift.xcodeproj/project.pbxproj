@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		188B6693290A07B2002507CF /* ValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188B6692290A07B2002507CF /* ValidationViewController.swift */; };
+		188B6695290A22CF002507CF /* ValidationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188B6694290A22CF002507CF /* ValidationViewModel.swift */; };
 		18E2D15329062A150041742A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E2D15229062A150041742A /* AppDelegate.swift */; };
 		18E2D15529062A150041742A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E2D15429062A150041742A /* SceneDelegate.swift */; };
 		18E2D15729062A150041742A /* RxCocoaExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E2D15629062A150041742A /* RxCocoaExampleViewController.swift */; };
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		188B6692290A07B2002507CF /* ValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationViewController.swift; sourceTree = "<group>"; };
+		188B6694290A22CF002507CF /* ValidationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationViewModel.swift; sourceTree = "<group>"; };
 		18E2D14F29062A150041742A /* weekRxswift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weekRxswift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18E2D15229062A150041742A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18E2D15429062A150041742A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +114,8 @@
 				18E2D18F29066E610041742A /* RxSampleProject */,
 				18E2D15229062A150041742A /* AppDelegate.swift */,
 				18E2D15429062A150041742A /* SceneDelegate.swift */,
+				188B6692290A07B2002507CF /* ValidationViewController.swift */,
+				188B6694290A22CF002507CF /* ValidationViewModel.swift */,
 				18E2D15629062A150041742A /* RxCocoaExampleViewController.swift */,
 				18E2D15829062A150041742A /* Main.storyboard */,
 				18E2D1EC29077A480041742A /* SubjectViewController.swift */,
@@ -278,7 +284,9 @@
 				18E2D19729066EA10041742A /* SimpleTableViewController.swift in Sources */,
 				18E2D1ED29077A480041742A /* SubjectViewController.swift in Sources */,
 				18E2D15529062A150041742A /* SceneDelegate.swift in Sources */,
+				188B6695290A22CF002507CF /* ValidationViewModel.swift in Sources */,
 				18E2D19529066E9A0041742A /* SimpleValidationViewController.swift in Sources */,
+				188B6693290A07B2002507CF /* ValidationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

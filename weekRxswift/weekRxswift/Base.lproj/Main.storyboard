@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2ES-Er-5fs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5dC-R4-qip">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
@@ -212,6 +212,64 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WIw-mH-bgr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2023" y="139"/>
+        </scene>
+        <!--Validation View Controller-->
+        <scene sceneID="gSW-DW-Ecu">
+            <objects>
+                <viewController id="5dC-R4-qip" customClass="ValidationViewController" customModule="weekRxswift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2Q1-mz-yr2">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="고래밥" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dxs-PC-ELK">
+                                <rect key="frame" x="20" y="67" width="350" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="dYF-Jq-VAZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8자이상" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGU-lm-hRf">
+                                <rect key="frame" x="20" y="121" width="350" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="tgg-HL-fzG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I9o-ta-L40">
+                                <rect key="frame" x="20" y="171" width="350" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="dlt-aj-b7l"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="WvY-rn-Uch"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="I9o-ta-L40" firstAttribute="leading" secondItem="WvY-rn-Uch" secondAttribute="leading" constant="20" id="3g2-Fu-VoM"/>
+                            <constraint firstItem="WGU-lm-hRf" firstAttribute="leading" secondItem="WvY-rn-Uch" secondAttribute="leading" constant="20" id="8NV-Ps-ngq"/>
+                            <constraint firstItem="WvY-rn-Uch" firstAttribute="trailing" secondItem="I9o-ta-L40" secondAttribute="trailing" constant="20" id="9LC-rO-rn8"/>
+                            <constraint firstItem="Dxs-PC-ELK" firstAttribute="top" secondItem="WvY-rn-Uch" secondAttribute="top" constant="20" id="GCb-Bi-Tya"/>
+                            <constraint firstItem="WvY-rn-Uch" firstAttribute="trailing" secondItem="Dxs-PC-ELK" secondAttribute="trailing" constant="20" id="GQS-sz-cAB"/>
+                            <constraint firstItem="WvY-rn-Uch" firstAttribute="trailing" secondItem="WGU-lm-hRf" secondAttribute="trailing" constant="20" id="Rj6-zY-EiB"/>
+                            <constraint firstItem="Dxs-PC-ELK" firstAttribute="leading" secondItem="WvY-rn-Uch" secondAttribute="leading" constant="20" id="SQr-Ni-rjT"/>
+                            <constraint firstItem="WGU-lm-hRf" firstAttribute="top" secondItem="Dxs-PC-ELK" secondAttribute="bottom" constant="20" id="e6O-zH-ZLL"/>
+                            <constraint firstItem="I9o-ta-L40" firstAttribute="top" secondItem="WGU-lm-hRf" secondAttribute="bottom" constant="20" id="yZm-1Q-sE4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="nameTextField" destination="Dxs-PC-ELK" id="7Bv-WN-uvD"/>
+                        <outlet property="stepButton" destination="I9o-ta-L40" id="cXu-mJ-MRY"/>
+                        <outlet property="validationLabel" destination="WGU-lm-hRf" id="3Pk-RP-JEZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0II-d8-ree" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2941" y="165"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RfH-qF-WOu">

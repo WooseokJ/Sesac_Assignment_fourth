@@ -28,52 +28,52 @@ class DifferbleCollectionViewController: UIViewController {
         cv.collectionViewLayout = createLayout() // layout 설정
         configureDataSource()
         cv.delegate = self // cell 클릭시 필요
-//        searchBar.delegate = self
+        searchBar.delegate = self
         
         bindData()
 //        APIService.searchPhoto(query: "apple") // test용
     }
     
     
-//    func bindData() {
-//        viewModel.photoList.bind { [self] photo in
-//            var snapshot = NSDiffableDataSourceSnapshot<Int,SearchResult>()
-//            snapshot.appendSections([0])
-//            snapshot.appendItems(photo.results)
-//            dataSource.apply(snapshot)
-//        }
-//    }
+    func bindData() {
+        viewModel.photoList.bind { [self] photo in
+            var snapshot = NSDiffableDataSourceSnapshot<Int,SearchResult>()
+            snapshot.appendSections([0])
+            snapshot.appendItems(photo.results)
+            dataSource.apply(snapshot)
+        }
+    }
     
     // rx활용
-    func bindData() {
-        viewModel.photoList
-            .withUnretained(self)
-            .subscribe(onNext: { (vc,photo) in
-                var snapshot = NSDiffableDataSourceSnapshot<Int,SearchResult>()
-               snapshot.appendSections([0])
-               snapshot.appendItems(photo.results)
-               vc.dataSource.apply(snapshot)
-            }, onError: { error in
-                print("======\(error)=====")
-            }, onCompleted: {
-                print("completed")
-            }, onDisposed: {
-                print("disposed")
-            })
-            .disposed(by: disposeBag) // .disposed(by: DisposeBag())을 해버리면 새로운 인스턴스를 만들게되므로 안된다.
-            
-        
-        
-        
-        searchBar.rx.text.orEmpty
-            .debounce(.seconds(1), scheduler: MainScheduler.instance)
-            .distinctUntilChanged()
-            .withUnretained(self)
-            .subscribe{ (vc,value) in
-                vc.viewModel.requestSearchPhoto(query: value)
-            }
-            .disposed(by: disposeBag)
-    }
+//    func bindData() {
+//        viewModel.photoList
+//            .withUnretained(self)
+//            .subscribe(onNext: { (vc,photo) in
+//                var snapshot = NSDiffableDataSourceSnapshot<Int,SearchResult>()
+//               snapshot.appendSections([0])
+//               snapshot.appendItems(photo.results)
+//               vc.dataSource.apply(snapshot)
+//            }, onError: { error in
+//                print("======\(error)=====")
+//            }, onCompleted: {
+//                print("completed")
+//            }, onDisposed: {
+//                print("disposed")
+//            })
+//            .disposed(by: disposeBag) // .disposed(by: DisposeBag())을 해버리면 새로운 인스턴스를 만들게되므로 안된다.
+//
+//
+//
+//
+//        searchBar.rx.text.orEmpty
+//            .debounce(.seconds(1), scheduler: MainScheduler.instance)
+//            .distinctUntilChanged()
+//            .withUnretained(self)
+//            .subscribe{ (vc,value) in
+//                vc.viewModel.requestSearchPhoto(query: value)
+//            }
+//            .disposed(by: disposeBag)
+//    }
 }
 
 
@@ -118,15 +118,15 @@ extension DifferbleCollectionViewController {
     }
 }
 
-//extension DifferbleCollectionViewController: UISearchBarDelegate {
-//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-////        var snapshot = dataSource.snapshot() // snapshot은 현재 상태 복사본
-////        snapshot.appendItems([searchBar.text!]) // 검색결과 append
-////        dataSource.apply(snapshot,animatingDifferences: true) // 이떄 View에 반영
-//
-//        viewModel.requestSearchPhoto(query: searchBar.text!)
-//    }
-//}
+extension DifferbleCollectionViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//        var snapshot = dataSource.snapshot() // snapshot은 현재 상태 복사본
+//        snapshot.appendItems([searchBar.text!]) // 검색결과 append
+//        dataSource.apply(snapshot,animatingDifferences: true) // 이떄 View에 반영
+
+        viewModel.requestSearchPhoto(query: searchBar.text!)
+    }
+}
 
 
 

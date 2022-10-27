@@ -30,7 +30,19 @@ class ViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         // 3. 네트워크 통신 ,파일다운로드 등 백그라운드 작업?
-            
+
+        // 아래 MainScheduler.instance와 동일
+        button.rx.tap
+            .withUnretained(self)
+            .subscribe { (vc,_) in
+                DispatchQueue.main.async {
+                    vc.label.text = "안녕1"
+
+                }
+            }
+            .disposed(by: disposeBag)
+        
+        
         button.rx.tap
 //            .map{} //global
 //            .map{} //global

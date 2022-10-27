@@ -73,6 +73,9 @@ class SubjectViewController: UIViewController {
                 vc.viewModel.filterData(query: value)
             }
             .disposed(by: disposeBag)
+        
+        
+
             
     }
 }
