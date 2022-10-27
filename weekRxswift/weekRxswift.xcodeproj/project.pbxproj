@@ -15,6 +15,12 @@
 		18E2D15F29062A160041742A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18E2D15D29062A160041742A /* LaunchScreen.storyboard */; };
 		18E2D18429062A530041742A /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 18E2D18329062A530041742A /* RxCocoa */; };
 		18E2D18629062A530041742A /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 18E2D18529062A530041742A /* RxSwift */; };
+		18E2D19129066E840041742A /* SimplePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E2D19029066E840041742A /* SimplePickerViewController.swift */; };
+		18E2D19329066E8E0041742A /* NumbersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E2D19229066E8E0041742A /* NumbersViewController.swift */; };
+		18E2D19529066E9A0041742A /* SimpleValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E2D19429066E9A0041742A /* SimpleValidationViewController.swift */; };
+		18E2D19729066EA10041742A /* SimpleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E2D19629066EA10041742A /* SimpleTableViewController.swift */; };
+		18E2D1ED29077A480041742A /* SubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E2D1EC29077A480041742A /* SubjectViewController.swift */; };
+		18E2D1EF290788AC0041742A /* SubjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E2D1EE290788AC0041742A /* SubjectViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +51,12 @@
 		18E2D16029062A160041742A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18E2D16529062A160041742A /* weekRxswiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = weekRxswiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18E2D16F29062A160041742A /* weekRxswiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = weekRxswiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		18E2D19029066E840041742A /* SimplePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePickerViewController.swift; sourceTree = "<group>"; };
+		18E2D19229066E8E0041742A /* NumbersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersViewController.swift; sourceTree = "<group>"; };
+		18E2D19429066E9A0041742A /* SimpleValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleValidationViewController.swift; sourceTree = "<group>"; };
+		18E2D19629066EA10041742A /* SimpleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTableViewController.swift; sourceTree = "<group>"; };
+		18E2D1EC29077A480041742A /* SubjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectViewController.swift; sourceTree = "<group>"; };
+		18E2D1EE290788AC0041742A /* SubjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,15 +107,29 @@
 		18E2D15129062A150041742A /* weekRxswift */ = {
 			isa = PBXGroup;
 			children = (
+				18E2D18F29066E610041742A /* RxSampleProject */,
 				18E2D15229062A150041742A /* AppDelegate.swift */,
 				18E2D15429062A150041742A /* SceneDelegate.swift */,
 				18E2D15629062A150041742A /* RxCocoaExampleViewController.swift */,
 				18E2D15829062A150041742A /* Main.storyboard */,
+				18E2D1EC29077A480041742A /* SubjectViewController.swift */,
+				18E2D1EE290788AC0041742A /* SubjectViewModel.swift */,
 				18E2D15B29062A160041742A /* Assets.xcassets */,
 				18E2D15D29062A160041742A /* LaunchScreen.storyboard */,
 				18E2D16029062A160041742A /* Info.plist */,
 			);
 			path = weekRxswift;
+			sourceTree = "<group>";
+		};
+		18E2D18F29066E610041742A /* RxSampleProject */ = {
+			isa = PBXGroup;
+			children = (
+				18E2D19029066E840041742A /* SimplePickerViewController.swift */,
+				18E2D19229066E8E0041742A /* NumbersViewController.swift */,
+				18E2D19429066E9A0041742A /* SimpleValidationViewController.swift */,
+				18E2D19629066EA10041742A /* SimpleTableViewController.swift */,
+			);
+			path = RxSampleProject;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,9 +270,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18E2D19129066E840041742A /* SimplePickerViewController.swift in Sources */,
+				18E2D19329066E8E0041742A /* NumbersViewController.swift in Sources */,
+				18E2D1EF290788AC0041742A /* SubjectViewModel.swift in Sources */,
 				18E2D15729062A150041742A /* RxCocoaExampleViewController.swift in Sources */,
 				18E2D15329062A150041742A /* AppDelegate.swift in Sources */,
+				18E2D19729066EA10041742A /* SimpleTableViewController.swift in Sources */,
+				18E2D1ED29077A480041742A /* SubjectViewController.swift in Sources */,
 				18E2D15529062A150041742A /* SceneDelegate.swift in Sources */,
+				18E2D19529066E9A0041742A /* SimpleValidationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

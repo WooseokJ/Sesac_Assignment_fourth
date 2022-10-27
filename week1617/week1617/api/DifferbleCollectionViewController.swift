@@ -8,6 +8,9 @@
 import UIKit
 import Kingfisher
 
+import RxSwift
+import RxCocoa
+
 class DifferbleCollectionViewController: UIViewController {
     @IBOutlet weak var cv: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -17,21 +20,59 @@ class DifferbleCollectionViewController: UIViewController {
     
     var viewModel = differbleViewModel()
     
+    var disposeBag = DisposeBag()
+    
     private var dataSource: UICollectionViewDiffableDataSource<Int,SearchResult>!  // Int는 색션의항목 ,list(모델의타입), <색션,데이터정보>
     override func viewDidLoad() {
         super.viewDidLoad()
         cv.collectionViewLayout = createLayout() // layout 설정
         configureDataSource()
         cv.delegate = self // cell 클릭시 필요
-        searchBar.delegate = self
+//        searchBar.delegate = self
         
-        viewModel.photoList.bind { [self] photo in
-            var snapshot = NSDiffableDataSourceSnapshot<Int,SearchResult>()
-            snapshot.appendSections([0])
-            snapshot.appendItems(photo.results)
-            dataSource.apply(snapshot)
-        }
+        bindData()
 //        APIService.searchPhoto(query: "apple") // test용
+    }
+    
+    
+//    func bindData() {
+//        viewModel.photoList.bind { [self] photo in
+//            var snapshot = NSDiffableDataSourceSnapshot<Int,SearchResult>()
+//            snapshot.appendSections([0])
+//            snapshot.appendItems(photo.results)
+//            dataSource.apply(snapshot)
+//        }
+//    }
+    
+    // rx활용
+    func bindData() {
+        viewModel.photoList
+            .withUnretained(self)
+            .subscribe(onNext: { (vc,photo) in
+                var snapshot = NSDiffableDataSourceSnapshot<Int,SearchResult>()
+               snapshot.appendSections([0])
+               snapshot.appendItems(photo.results)
+               vc.dataSource.apply(snapshot)
+            }, onError: { error in
+                print("======\(error)=====")
+            }, onCompleted: {
+                print("completed")
+            }, onDisposed: {
+                print("disposed")
+            })
+            .disposed(by: disposeBag) // .disposed(by: DisposeBag())을 해버리면 새로운 인스턴스를 만들게되므로 안된다.
+            
+        
+        
+        
+        searchBar.rx.text.orEmpty
+            .debounce(.seconds(1), scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+            .withUnretained(self)
+            .subscribe{ (vc,value) in
+                vc.viewModel.requestSearchPhoto(query: value)
+            }
+            .disposed(by: disposeBag)
     }
 }
 
@@ -46,7 +87,7 @@ extension DifferbleCollectionViewController {
         let cellRegisteration = UICollectionView.CellRegistration<UICollectionViewListCell,SearchResult> (handler: { cell, indexPath, itemIdentifier in
             var content = UIListContentConfiguration.valueCell()
             content.text = "\(itemIdentifier.likes)"
-            content.secondaryText = "\(itemIdentifier.id)"
+//            content.secondaryText = "\(itemIdentifier.id)"
             
             let url = URL(string: "asd")  // string -> url -> data -> image
 //            content.image?.kf.setImage(url)
@@ -58,14 +99,13 @@ extension DifferbleCollectionViewController {
                 DispatchQueue.main.async {
                     content.image = UIImage(data: data!)
                     cell.contentConfiguration = content
-
                 }
             }
             
             
             var background = UIBackgroundConfiguration.listPlainCell()
             background.strokeWidth = 10
-            background.strokeColor = .blue
+//            background.strokeColor = .blue
             cell.backgroundConfiguration = background
              
         })
@@ -78,15 +118,16 @@ extension DifferbleCollectionViewController {
     }
 }
 
-extension DifferbleCollectionViewController: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        var snapshot = dataSource.snapshot() // snapshot은 현재 상태 복사본
-//        snapshot.appendItems([searchBar.text!]) // 검색결과 append
-//        dataSource.apply(snapshot,animatingDifferences: true) // 이떄 View에 반영
-        
-        viewModel.requestSearchPhoto(query: searchBar.text!)
-    }
-}
+//extension DifferbleCollectionViewController: UISearchBarDelegate {
+//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+////        var snapshot = dataSource.snapshot() // snapshot은 현재 상태 복사본
+////        snapshot.appendItems([searchBar.text!]) // 검색결과 append
+////        dataSource.apply(snapshot,animatingDifferences: true) // 이떄 View에 반영
+//
+//        viewModel.requestSearchPhoto(query: searchBar.text!)
+//    }
+//}
+
 
 
 extension DifferbleCollectionViewController: UICollectionViewDelegate {

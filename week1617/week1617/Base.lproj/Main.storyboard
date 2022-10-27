@@ -16,13 +16,43 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hdd-vS-nMW">
+                                <rect key="frame" x="40" y="147" width="310" height="34.333333333333343"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQP-eI-dOh">
+                                <rect key="frame" x="40" y="221.33333333333334" width="310" height="50.000000000000028"/>
+                                <color key="backgroundColor" systemColor="systemMintColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="dIa-3R-WUc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Hdd-vS-nMW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="10F-DN-7vk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Hdd-vS-nMW" secondAttribute="trailing" constant="40" id="2jI-w2-Qs6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JQP-eI-dOh" secondAttribute="trailing" constant="40" id="PD1-ew-yAL"/>
+                            <constraint firstItem="Hdd-vS-nMW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="aa3-qk-Flt"/>
+                            <constraint firstItem="JQP-eI-dOh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="dnX-4N-r3M"/>
+                            <constraint firstItem="JQP-eI-dOh" firstAttribute="top" secondItem="Hdd-vS-nMW" secondAttribute="bottom" constant="40" id="u6u-gg-R5Y"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="button" destination="Hdd-vS-nMW" id="XXF-zI-14S"/>
+                        <outlet property="label" destination="JQP-eI-dOh" id="n3I-mc-QWG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="22" y="4"/>
+            <point key="canvasLocation" x="-268" y="23"/>
         </scene>
         <!--Simple Table View Controller-->
         <scene sceneID="TSk-fR-kRE">
@@ -120,13 +150,13 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9he-F3-tnq">
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9he-F3-tnq">
                                 <rect key="frame" x="308" y="101" width="62" height="60"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Load"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gbp-6O-KzW">
-                                <rect key="frame" x="20" y="101" width="68" height="60"/>
+                                <rect key="frame" x="20" y="101" width="268" height="60"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Reset"/>
                             </button>
@@ -195,9 +225,6 @@
                                     <constraint firstAttribute="height" constant="56" id="Qwh-vd-DZ6"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="qCR-k4-vqx" id="fKY-OG-e06"/>
-                                </connections>
                             </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2zd-2n-SwO"/>
@@ -225,6 +252,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemMintColor">
+            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

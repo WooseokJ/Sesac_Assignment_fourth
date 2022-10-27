@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class NewsViewController: UIViewController {
 
@@ -26,8 +28,8 @@ class NewsViewController: UIViewController {
         bindData()
         
         numberTextField.addTarget(self, action: #selector(numberTextFieldChanged), for: .editingChanged)
-        resetButton.addTarget(self, action: #selector(resetButtonTap), for: .touchUpInside)
-        loadButton.addTarget(self, action: #selector(loadButtonTap), for: .touchUpInside)
+//        resetButton.addTarget(self, action: #selector(resetButtonTap), for: .touchUpInside)
+//        loadButton.addTarget(self, action: #selector(loadButtonTap), for: .touchUpInside)
     }
     @objc func numberTextFieldChanged() {
         // 123,412,341,234
@@ -35,27 +37,57 @@ class NewsViewController: UIViewController {
         viewmodel.chagePageNumberFormat(text: text)
     }
     
-    @objc func resetButtonTap() {
-        viewmodel.resetSample()
-    }
-    @objc func loadButtonTap() {
-        viewmodel.loadSample()
+//    @objc func resetButtonTap() {
+//        viewmodel.resetSample()
+//    }
+//    @objc func loadButtonTap() {
+//        viewmodel.loadSample()
+//    }
+    
+//    func bindData() {
+//
+//        viewmodel.pageNumber.bind { val in
+//            print("bind == \(val)")
+//            self.numberTextField.text = val
+//        }
+//        viewmodel.sample.bind { item in
+//            print("sample bind == \(item)")
+//            var snapshot = NSDiffableDataSourceSnapshot<Int,News.NewsItem>()
+//            snapshot.appendSections([0])
+//            snapshot.appendItems(item)
+//            self.dataSource.apply(snapshot,animatingDifferences: true)
+//        }
+//    }
+    
+    
+    
+    var disposeBag = DisposeBag()
+    
+    /// rxswift에서 쓰는 bind 사용
+    func bindData() {
+        viewmodel.sample
+            .withUnretained(self)
+            .bind{ (vc,item) in
+                var snapshot = NSDiffableDataSourceSnapshot<Int,News.NewsItem>()
+                snapshot.appendSections([0])
+                snapshot.appendItems(item)
+                vc.dataSource.apply(snapshot,animatingDifferences: true)
+            }
+            .disposed(by: disposeBag)
+        loadButton.rx.tap
+            .withUnretained(self)
+            .bind { (vc,_ )in  //실패할가능성 고려안해도되므로
+                vc.viewmodel.loadSample()
+            }
+        resetButton.rx.tap
+            .withUnretained(self)
+            .bind { (vc,_) in
+                vc.viewmodel.resetSample()
+            }
     }
     
-    func bindData() {
-        
-        viewmodel.pageNumber.bind { val in
-            print("bind == \(val)")
-            self.numberTextField.text = val
-        }
-        viewmodel.sample.bind { item in
-            print("sample bind == \(item)")
-            var snapshot = NSDiffableDataSourceSnapshot<Int,News.NewsItem>()
-            snapshot.appendSections([0])
-            snapshot.appendItems(item)
-            self.dataSource.apply(snapshot,animatingDifferences: true)
-        }
-    }
+    
+    
     
 }
 
