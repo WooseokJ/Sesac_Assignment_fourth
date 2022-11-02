@@ -140,7 +140,7 @@ extension AppDelegate {
 //        let config = Realm.Configuration(schemaVersion: 0, deleteRealmIfMigrationNeeded: true) // 새로운 스키마 버전 설정,  deleteRealmIfMigrationNeeded: 스키마 버전 0 부터 기존램이 지워지고 다시 Realm 0 생성
         
         //방법2
-        let config = Realm.Configuration (
+        let config2 = Realm.Configuration (
             schemaVersion: 6, // 새로운 버전 올릴떄마다 +1 해줘야함.(처음은 0 으로시작) 
             
             migrationBlock: { Migration, oldSchemaVersion in
@@ -179,7 +179,7 @@ extension AppDelegate {
                 }
             }
         )
-        Realm.Configuration.defaultConfiguration = config
+        Realm.Configuration.defaultConfiguration = config2
     }
     
     
