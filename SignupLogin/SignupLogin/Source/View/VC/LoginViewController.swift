@@ -10,18 +10,14 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class LoginViewController: BaseViewController {
-
-    // VM 가져오기
-    let loginVM = LoginViewModel()
-
-    // 구독해제
-    let disposeBag = DisposeBag()
+final class LoginViewController: BaseViewController {
     
-
-
+    // VM 가져오기
+    private let loginVM = LoginViewModel()
+    
     // 뷰
-    let loginView = LoginView()
+    private let loginView = LoginView()
+    
     override func loadView() {
         super.view = loginView
     }
@@ -29,27 +25,16 @@ class LoginViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "로그인 화면"
-        
-        // test
-//        api.signup(username: "testing101022", email: "testing101022@naver.com", password: "testing101022")
-//        api.login(email: "testing101022@naver.com", password: "testing101022")
-//        api.profile()
-        
         bind()
-       
     }
     
-    func bind() {
+    private func bind() {
         
-        // 유효성검사
-        let validation = Observable.combineLatest(loginView.emailTextField.rx.text.orEmpty, loginView.passwordTextField.rx.text.orEmpty) { email, password in
-            email.contains("@") && email.contains("com") && password.count >= 8
-        }.share()
-        
-        
+        let input = LoginViewModel.Input(signButtonTap: loginView.signupButton.rx.tap, checkButtonTap:  loginView.checkButton.rx.tap)
+        let output = loginVM.transform(input: input)
         
         // 회원가입 클릭시
-        loginView.signupButton.rx.tap
+        output.signButtonTap
             .withUnretained(self)
             .bind { (vc,_) in
                 let signupVC = SignUpViewController()
@@ -58,46 +43,30 @@ class LoginViewController: BaseViewController {
             .disposed(by: disposeBag)
         
         
-        // 로그인 클릭시 
-        loginView.checkButton.rx.tap
+        // 로그인 클릭시
+        output.checkButtonTap
             .withUnretained(self)
-            .subscribe { (vc,_) in
+            .subscribe { (vc,val) in
                 
-                let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-                let sceneDelegate = windowScene?.delegate as? SceneDelegate
-                let vc = ProfileViewController()
-                let nav = UINavigationController(rootViewController: vc)
-                sceneDelegate?.window?.rootViewController = nav
-                sceneDelegate?.window?.makeKeyAndVisible()
-                
-            } onError: { error in
-                print("error: ",error)
-            } onCompleted: {
-                print("completed")
-            } onDisposed: {
-                print("disposed")
+                guard let email = vc.loginView.emailTextField.text,
+                      let password = vc.loginView.passwordTextField.text else {return}
+                vc.api.login(email: email, password: password) { val in                    
+                    if val {
+                        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+                        let sceneDelegate = windowScene?.delegate as? SceneDelegate
+                        let vc = ProfileViewController()
+                        let nav = UINavigationController(rootViewController: vc)
+                        sceneDelegate?.window?.rootViewController = nav
+                        sceneDelegate?.window?.makeKeyAndVisible()
+                    } else {
+                        self.showAlertMessage(title: "로그인 실패")
+                    }
+                }
             }
             .disposed(by: disposeBag)
+        
+ 
+        
+        
     }
-    
-//    signupView.checkSignupButton.rx.tap
-//        .withUnretained(self)
-//        .subscribe { (vc,val) in
-//
-//            guard let email = vc.signupView.emailSignupTextField.text,
-//                  let password = vc.signupView.passwordSignupTextField.text,
-//                  let nickname = vc.signupView.nicknameSignupTextField.text else {return}
-//            vc.api.signup(username: nickname, email: email, password: password) { val in
-//                print(val)
-//                if val {vc.navigationController?.popViewController(animated: true)}
-//                else {
-//                    self.showAlertMessage(title: "오류발생")
-//                }
-//            }
-//
-//        }
-//        .disposed(by: disposeBag)
-    
-    
-    
 }

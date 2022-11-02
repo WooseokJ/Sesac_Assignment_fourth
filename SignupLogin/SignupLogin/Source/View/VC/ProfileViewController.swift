@@ -9,9 +9,9 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class ProfileViewController: BaseViewController {
+final class ProfileViewController: BaseViewController {
 
-    let profileView = ProfileView()
+    private let profileView = ProfileView()
     
     override func loadView() {
         self.view = profileView
@@ -22,11 +22,21 @@ class ProfileViewController: BaseViewController {
         navigationItem.title = "프로필 정보"
         bind()
         
+
+        // 10 초후 token 만료
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+            UserDefaults.standard.set(nil, forKey: "token")
+        }
+        
     }
     
-    func bind() {
+    private func bind() {
        
-            
+        api.profile { [weak self] val in
+            self?.profileView.email.text = "Email: " + (val?.user.email ?? "No Email")
+            self?.profileView.nickname.text = "NickName: " + (val?.user.username ?? "No NickName")
+        }
+        
     }
 
   

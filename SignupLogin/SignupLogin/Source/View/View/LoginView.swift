@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-class LoginView: BaseView {
+final class LoginView: BaseView {
     
     // 연결
     override init(frame: CGRect) {
@@ -25,27 +25,27 @@ class LoginView: BaseView {
     
     lazy var emailTextField: UITextField = {
         let textfield = UITextField()
-        textfield.backgroundColor = .yellow
+        textfield.backgroundColor = Color.textFieldBackGround
         textfield.placeholder = " email 입력"
         return textfield
     }()
     
   
-    let passwordTextField: UITextField = {
+    lazy var passwordTextField: UITextField = {
         let textfield = UITextField()
-        textfield.backgroundColor = .yellow
+        textfield.backgroundColor = Color.textFieldBackGround
         textfield.placeholder = " password 입력"
         return textfield
     }()
     
-    let checkButton: UIButton = {
+    lazy var checkButton: UIButton = {
         let bt = UIButton()
         bt.backgroundColor = .red
         bt.setTitle("확인", for: .normal)
         return bt
     }()
     
-    let signupButton: UIButton = {
+    lazy var signupButton: UIButton = {
         let bt = UIButton()
         bt.backgroundColor = .red
         bt.setTitle("회원가입", for: .normal)

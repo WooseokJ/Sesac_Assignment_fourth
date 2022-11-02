@@ -30,6 +30,7 @@
 		1804C242291293A100E31F51 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1804C241291293A100E31F51 /* LoginViewModel.swift */; };
 		1804C244291293A800E31F51 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1804C243291293A800E31F51 /* SignupViewModel.swift */; };
 		1804C246291293AD00E31F51 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1804C245291293AD00E31F51 /* ProfileViewModel.swift */; };
+		1804C2592912FA6200E31F51 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1804C2582912FA6200E31F51 /* Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		1804C241291293A100E31F51 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		1804C243291293A800E31F51 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		1804C245291293AD00E31F51 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		1804C2582912FA6200E31F51 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 		1804C22129128D1800E31F51 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				1804C2572912FA2F00E31F51 /* Custom */,
 				1804C22629128D2900E31F51 /* Base */,
 				1804C22229128D2900E31F51 /* Model */,
 				1804C22329128D2900E31F51 /* Network */,
@@ -219,6 +222,14 @@
 				1804C22F29128D5A00E31F51 /* SignupView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		1804C2572912FA2F00E31F51 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				1804C2582912FA6200E31F51 /* Color.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,6 +390,7 @@
 				1804C23E29128E5A00E31F51 /* Enum.swift in Sources */,
 				1804C24029128ED600E31F51 /* UserInfo.swift in Sources */,
 				1804C22A29128D3C00E31F51 /* LoginViewController.swift in Sources */,
+				1804C2592912FA6200E31F51 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

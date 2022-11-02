@@ -7,12 +7,21 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
 class SignupViewModel {
     
-    // 네트워크
-    let api = APIService()
+    struct Input {
+        let checkTap: ControlEvent<Void> // signupView.checkSignupButton.rx.tap
+        
+    }
     
-    let emailValid = BehaviorSubject(value: "이메일 형식을 지켜주세요")
-    let passwordValid = BehaviorSubject(value: "8글자 이상 써주세요.")
+    struct Output {
+        let checkTap: ControlEvent<Void>
+    }
+    
+    func transform(input: Input) -> Output {
+        return Output(checkTap: input.checkTap)
+    }
+
 }

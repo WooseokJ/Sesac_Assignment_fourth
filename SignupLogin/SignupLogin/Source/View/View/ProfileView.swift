@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class ProfileView: BaseView {
+final class ProfileView: BaseView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -20,24 +20,15 @@ class ProfileView: BaseView {
         fatalError("init(coder:) has not been implemented")
     }
     
-//    let title: UILabel = {
-//        let label = UILabel()
-//        label.text = "프로필 정보"
-//        return label
-//    }()
-    
-    let email: UILabel = {
+    lazy var email: UILabel = {
         let label = UILabel()
         return label
     }()
     
-    let nickname: UILabel = {
+    lazy var nickname: UILabel = {
         let label = UILabel()
         return label
     }()
-    
-    
-    
     
     override func configure() {
         [email,nickname].forEach {
@@ -46,20 +37,20 @@ class ProfileView: BaseView {
     }
     
     override func setConstrains() {
-//        title.snp.makeConstraints {
-//            $0.top.equalTo(30)
-//            $0.centerX.equalTo(self)
-//            $0.height.equalTo(50)
-//        }
-//
+        
         email.snp.makeConstraints {
             $0.top.equalTo(100)
-            $0.centerX.equalTo(self)
+            
+            $0.leading.equalTo(20)
+            $0.trailing.equalTo(-20)
             $0.height.equalTo(50)
         }
+        
         nickname.snp.makeConstraints {
             $0.top.equalTo(email.snp.bottom).offset(30)
-            $0.centerX.equalTo(self)
+            
+            $0.leading.equalTo(email.snp.leading)
+            $0.trailing.equalTo(email.snp.trailing)
             $0.height.equalTo(email.snp.height)
         }
     }

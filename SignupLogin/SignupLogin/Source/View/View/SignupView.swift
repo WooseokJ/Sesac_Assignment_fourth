@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class SignupView: BaseView {
+final class SignupView: BaseView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,26 +22,26 @@ class SignupView: BaseView {
     
     lazy var emailSignupTextField: UITextField = {
         let textfield = UITextField()
-        textfield.backgroundColor = .yellow
-        textfield.placeholder = " email 입력"
+        textfield.backgroundColor = Color.textFieldBackGround
+        textfield.placeholder = "@,.com을 포함하는 email 입력해주세요"
         return textfield
     }()
   
-    let passwordSignupTextField: UITextField = {
+    lazy var passwordSignupTextField: UITextField = {
         let textfield = UITextField()
-        textfield.backgroundColor = .yellow
-        textfield.placeholder = " password 입력"
+        textfield.backgroundColor = Color.textFieldBackGround
+        textfield.placeholder = " 8글자이상의 password 입력해주세요"
         return textfield
     }()
     
-    let nicknameSignupTextField: UITextField = {
+    lazy var nicknameSignupTextField: UITextField = {
         let textfield = UITextField()
-        textfield.backgroundColor = .yellow
-        textfield.placeholder = " nickanme 입력"
+        textfield.backgroundColor = Color.textFieldBackGround
+        textfield.placeholder = " nickanme 입력해주세요"
         return textfield
     }()
     
-    let checkSignupButton: UIButton = {
+    lazy var checkSignupButton: UIButton = {
         let bt = UIButton()
         bt.backgroundColor = .lightGray
         bt.setTitle("확인", for: .normal)

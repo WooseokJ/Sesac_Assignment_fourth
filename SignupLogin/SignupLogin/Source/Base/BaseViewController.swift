@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class BaseViewController: UIViewController {
 
@@ -14,6 +16,10 @@ class BaseViewController: UIViewController {
     override func loadView() {
         self.view = baseView
     }
+    
+    let disposeBag = DisposeBag()
+    let api = APIService()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemGray4
