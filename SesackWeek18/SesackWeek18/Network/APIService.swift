@@ -36,7 +36,7 @@ class APIService {
         let api = SeSACAPI.login(email: "testHot@naver.com", password: "testHot10")
 
         AF.request(api.url,method: .post, parameters: api.parameters, headers: api.headers)
-//            .validate(statusCode: 200...299)
+            .validate(statusCode: 200...299)
             .responseDecodable(of: Login.self) { response in // login에 디코딩해주는것
             
             switch response.result {
