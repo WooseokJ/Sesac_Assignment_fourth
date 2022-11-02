@@ -7,13 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1804C13B291265B400E31F51 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1804C13A291265B400E31F51 /* BaseViewController.swift */; };
+		1804C13D291265BA00E31F51 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1804C13C291265BA00E31F51 /* BaseView.swift */; };
+		1804C13F2912673600E31F51 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1804C13E2912673600E31F51 /* MainView.swift */; };
 		18AA12C6290FDA9E00074253 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 18AA12C5290FDA9E00074253 /* Alamofire */; };
 		18AA1304290FED0700074253 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AA1303290FED0700074253 /* MainViewModel.swift */; };
 		18AA1307290FF4D100074253 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 18AA1306290FF4D100074253 /* RxCocoa */; };
 		18AA1309290FF4D100074253 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 18AA1308290FF4D100074253 /* RxSwift */; };
 		18B39FCF290BD2030020B475 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B39FCE290BD2030020B475 /* AppDelegate.swift */; };
 		18B39FD1290BD2030020B475 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B39FD0290BD2030020B475 /* SceneDelegate.swift */; };
-		18B39FD3290BD2030020B475 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B39FD2290BD2030020B475 /* ViewController.swift */; };
+		18B39FD3290BD2030020B475 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B39FD2290BD2030020B475 /* MainViewController.swift */; };
 		18B39FD8290BD2040020B475 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18B39FD7290BD2040020B475 /* Assets.xcassets */; };
 		18B39FDB290BD2040020B475 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18B39FD9290BD2040020B475 /* LaunchScreen.storyboard */; };
 		18C8CE3A290D11D50041E3BA /* LottoAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8CE39290D11D50041E3BA /* LottoAPIManager.swift */; };
@@ -45,11 +48,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1804C13A291265B400E31F51 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		1804C13C291265BA00E31F51 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		1804C13E2912673600E31F51 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		18AA1303290FED0700074253 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		18B39FCB290BD2030020B475 /* Unsplash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unsplash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18B39FCE290BD2030020B475 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18B39FD0290BD2030020B475 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		18B39FD2290BD2030020B475 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		18B39FD2290BD2030020B475 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		18B39FD7290BD2040020B475 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18B39FDA290BD2040020B475 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18B39FDC290BD2040020B475 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -94,6 +100,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1804C139291265AB00E31F51 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				1804C13A291265B400E31F51 /* BaseViewController.swift */,
+				1804C13C291265BA00E31F51 /* BaseView.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		18B39FC2290BD2030020B475 = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +159,7 @@
 		18C8CE37290D0B870041E3BA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1804C13E2912673600E31F51 /* MainView.swift */,
 				18D1A46F290FAA42009FBD65 /* ViewController */,
 			);
 			path = Views;
@@ -152,6 +168,7 @@
 		18C8CE38290D0BA40041E3BA /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				1804C139291265AB00E31F51 /* Base */,
 				18D1A487290FC08F009FBD65 /* Model */,
 				18D1A481290FB6F6009FBD65 /* New Group */,
 				18D1A470290FAA67009FBD65 /* APIServices */,
@@ -164,7 +181,7 @@
 		18D1A46F290FAA42009FBD65 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				18B39FD2290BD2030020B475 /* ViewController.swift */,
+				18B39FD2290BD2030020B475 /* MainViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -340,16 +357,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				18D1A46A290F8F88009FBD65 /* Lotto.swift in Sources */,
-				18B39FD3290BD2030020B475 /* ViewController.swift in Sources */,
+				18B39FD3290BD2030020B475 /* MainViewController.swift in Sources */,
 				18B39FCF290BD2030020B475 /* AppDelegate.swift in Sources */,
 				18D1A47B290FB692009FBD65 /* Observable.swift in Sources */,
 				18D1A486290FBF63009FBD65 /* ListPhoto.swift in Sources */,
+				1804C13B291265B400E31F51 /* BaseViewController.swift in Sources */,
 				18D1A46C290F940D009FBD65 /* PersonAPIManager.swift in Sources */,
 				18D1A479290FB5C4009FBD65 /* APIKey.swift in Sources */,
 				18D1A46E290F94D7009FBD65 /* Person.swift in Sources */,
 				18D1A47D290FB6B8009FBD65 /* APIService.swift in Sources */,
 				18B39FD1290BD2030020B475 /* SceneDelegate.swift in Sources */,
+				1804C13D291265BA00E31F51 /* BaseView.swift in Sources */,
 				18C8CE3A290D11D50041E3BA /* LottoAPIManager.swift in Sources */,
+				1804C13F2912673600E31F51 /* MainView.swift in Sources */,
 				18AA1304290FED0700074253 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

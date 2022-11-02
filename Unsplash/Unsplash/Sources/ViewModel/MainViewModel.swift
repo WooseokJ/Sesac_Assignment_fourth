@@ -8,20 +8,6 @@
 import Foundation
 import RxSwift
 
-
-
-//class MainViewModel {
-//    var photoList: Oservable<ListPhoto> = Oservable(ListPhoto(listPhotoDescription: "", urls: []))
-//
-//    func requestPhoto(page:String) {
-//        APIService.listPhoto(page: page) { photo, error in
-//            guard let photo = photo else {return}
-//            self.photoList.value = photo
-//        } // APIService 에서 대신해줘 하고 받은거 사용
-//    }
-//}
-
-
 class MainViewModel {
     var photoList = PublishSubject<ListPhoto>()
     
@@ -37,9 +23,7 @@ class MainViewModel {
                 return
             }
             self?.photoList.onNext(photo)
-            
         }
-        
     }
     
 }
