@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-class MainView: BaseView {
+class LoginView: BaseView {
     
     // 연결
     override init(frame: CGRect) {
@@ -23,12 +23,13 @@ class MainView: BaseView {
     }
     
     
-    let emailTextField: UITextField = {
+    lazy var emailTextField: UITextField = {
         let textfield = UITextField()
         textfield.backgroundColor = .yellow
         textfield.placeholder = " email 입력"
         return textfield
     }()
+    
   
     let passwordTextField: UITextField = {
         let textfield = UITextField()
@@ -59,7 +60,7 @@ class MainView: BaseView {
     
     override func setConstrains() {
         emailTextField.snp.makeConstraints {
-            $0.top.equalTo(100)
+            $0.top.equalTo(150)
             $0.leading.equalTo(20)
             $0.trailing.equalTo(-20)
             $0.height.equalTo(40)
@@ -72,18 +73,18 @@ class MainView: BaseView {
             $0.height.equalTo(emailTextField.snp.height)
         }
         
-        checkButton.snp.makeConstraints {
+        signupButton.snp.makeConstraints {
             $0.top.equalTo(passwordTextField.snp.bottom).offset(50)
             $0.leading.equalTo(passwordTextField.snp.leading)
-            $0.height.equalTo(60)
-            $0.width.equalTo(passwordTextField.snp.width).multipliedBy(0.3)
+            $0.height.equalTo(passwordTextField.snp.height)
+            $0.width.equalTo(passwordTextField.snp.width)
         }
         
-        signupButton.snp.makeConstraints {
-            $0.top.equalTo(checkButton.snp.top)
+        checkButton.snp.makeConstraints {
+            $0.top.equalTo(signupButton.snp.top).offset(50)
             $0.trailing.equalTo(passwordTextField.snp.trailing)
-            $0.height.equalTo(checkButton.snp.height)
-            $0.width.equalTo(checkButton.snp.width)
+            $0.height.equalTo(signupButton.snp.height)
+            $0.width.equalTo(signupButton.snp.width)
         }
         
     }

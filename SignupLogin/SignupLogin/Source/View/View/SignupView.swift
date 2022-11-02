@@ -20,7 +20,7 @@ class SignupView: BaseView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    let emailSignupTextField: UITextField = {
+    lazy var emailSignupTextField: UITextField = {
         let textfield = UITextField()
         textfield.backgroundColor = .yellow
         textfield.placeholder = " email 입력"
@@ -43,7 +43,7 @@ class SignupView: BaseView {
     
     let checkSignupButton: UIButton = {
         let bt = UIButton()
-        bt.backgroundColor = .red
+        bt.backgroundColor = .lightGray
         bt.setTitle("확인", for: .normal)
         return bt
     }()
@@ -57,7 +57,7 @@ class SignupView: BaseView {
     
     override func setConstrains() {
         emailSignupTextField.snp.makeConstraints {
-            $0.top.equalTo(100)
+            $0.top.equalTo(150)
             $0.leading.equalTo(20)
             $0.trailing.equalTo(-20)
             $0.height.equalTo(40)

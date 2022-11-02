@@ -20,24 +20,47 @@ class ProfileView: BaseView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    let title: UILabel = {
+//    let title: UILabel = {
+//        let label = UILabel()
+//        label.text = "프로필 정보"
+//        return label
+//    }()
+    
+    let email: UILabel = {
         let label = UILabel()
-        label.text = "프로필 정보"
+        return label
+    }()
+    
+    let nickname: UILabel = {
+        let label = UILabel()
         return label
     }()
     
     
+    
+    
     override func configure() {
-        [title].forEach {
+        [email,nickname].forEach {
             self.addSubview($0)
         }
     }
     
     override func setConstrains() {
-        title.snp.makeConstraints {
-            $0.top.equalTo(30)
+//        title.snp.makeConstraints {
+//            $0.top.equalTo(30)
+//            $0.centerX.equalTo(self)
+//            $0.height.equalTo(50)
+//        }
+//
+        email.snp.makeConstraints {
+            $0.top.equalTo(100)
             $0.centerX.equalTo(self)
             $0.height.equalTo(50)
+        }
+        nickname.snp.makeConstraints {
+            $0.top.equalTo(email.snp.bottom).offset(30)
+            $0.centerX.equalTo(self)
+            $0.height.equalTo(email.snp.height)
         }
     }
     

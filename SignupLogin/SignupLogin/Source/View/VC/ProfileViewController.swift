@@ -25,7 +25,8 @@ class ProfileViewController: BaseViewController {
     }
     
     func bind() {
-        
+       
+            
     }
 
   

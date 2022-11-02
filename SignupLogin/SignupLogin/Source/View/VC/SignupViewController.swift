@@ -10,8 +10,13 @@ import RxSwift
 import RxCocoa
 
 class SignUpViewController: BaseViewController {
-
-    let signupView = SignupView()
+    
+    var signupView = SignupView()
+    
+    let signupViewModel = SignupViewModel()
+    
+    // 네트워크
+    let api = APIService()
     
     let disposeBag = DisposeBag()
     override func loadView() {
@@ -24,14 +29,46 @@ class SignUpViewController: BaseViewController {
         bind()
     }
     
-
+    
     func bind() {
-        signupView.checkSignupButton.rx.tap
+        
+        let validation = Observable.combineLatest(signupView.emailSignupTextField.rx.text.orEmpty, signupView.passwordSignupTextField.rx.text.orEmpty, signupView.nicknameSignupTextField.rx.text.orEmpty) { email, password, nickname in
+            email.contains("@") && email.contains("com") && password.count >= 8 && !nickname.isEmpty
+        }.share()
+        
+        validation
+            .bind(to: signupView.checkSignupButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        
+        
+        validation
             .withUnretained(self)
-            .subscribe { (vc,_) in
-
+            .bind { (vc,val) in
+                let color: UIColor = val ? .red : .lightGray
+                vc.signupView.checkSignupButton.backgroundColor = color
             }
             .disposed(by: disposeBag)
+        
+        signupView.checkSignupButton.rx.tap
+            .withUnretained(self)
+            .subscribe { (vc,val) in
+                guard let email = vc.signupView.emailSignupTextField.text,
+                      let password = vc.signupView.passwordSignupTextField.text,
+                      let nickname = vc.signupView.nicknameSignupTextField.text else {return}
+                vc.api.signup(username: nickname, email: email, password: password) { val in
+                    print(val)
+                    if val {vc.navigationController?.popViewController(animated: true)}
+                }
+            } onError: { error in
+                print("error",error)
+            } onCompleted: {
+                print("completed")
+            } onDisposed: {
+                print("disposed")
+            }
+            .disposed(by: disposeBag)
+        
     }
-
+    
 }

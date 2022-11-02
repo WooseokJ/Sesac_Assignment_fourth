@@ -16,11 +16,14 @@ class BaseViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .gray
+        self.view.backgroundColor = .systemGray4
 
     }
+    func showAlertMessage(title: String) {
+        let alert = UIAlertController(title: title, message: "", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .default)
+        alert.addAction(ok)
+        present(alert,animated: true)
+    }
     
-
-
-
 }
