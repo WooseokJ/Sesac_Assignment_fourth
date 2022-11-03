@@ -14,6 +14,10 @@ enum SeSACAPI {
     case profile
 }
 
+enum UDkey {
+    case token
+}
+
 extension SeSACAPI {
     var url: URL {
         switch self {
@@ -33,7 +37,7 @@ extension SeSACAPI {
             return ["Content-Type" : "application/x-www-form-urlencoded"]
         case .profile:
             return [
-                "Authorization" : "Bearer \(UserDefaults.standard.string(forKey: "token")!)",
+                "Authorization" : "Bearer \(UserDefaults.standard.string(forKey: "token")!)", // propertyWrapper 5.1 
                 "Content-Type" : "application/x-www-form-urlencoded"
             ]
 

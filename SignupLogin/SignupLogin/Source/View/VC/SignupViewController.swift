@@ -12,7 +12,6 @@ import RxCocoa
 final class SignUpViewController: BaseViewController {
     
     private var signupView = SignupView()
-    
     private let signupViewModel = SignupViewModel()
     
     override func loadView() {
@@ -27,7 +26,9 @@ final class SignUpViewController: BaseViewController {
     
     
     private func bind() {
+        
         //MARK: 유효성검사 (이메일 조건,비번개수,닉네임입력여부)
+        
         let validation = Observable.combineLatest(signupView.emailSignupTextField.rx.text.orEmpty, signupView.passwordSignupTextField.rx.text.orEmpty, signupView.nicknameSignupTextField.rx.text.orEmpty) { email, password, nickname in
             email.contains("@") && email.contains("com") && password.count >= 8 && !nickname.isEmpty
         }.share()

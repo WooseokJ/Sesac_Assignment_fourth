@@ -9,7 +9,11 @@
 import Alamofire
 import UIKit
 
+
+
+
 final class APIService {
+    //MARK: - 싱글턴 변수
     
     typealias completionHandler = ((Bool) -> ())
     typealias ProfileInfo = ((Profile?) -> ())
@@ -36,6 +40,7 @@ final class APIService {
                 }
             })
     }
+    
     ///로그인
     func login(email: String, password: String, completionHandler: @escaping completionHandler  ) {
         let api = API.login(email: email, password: password)
@@ -69,9 +74,5 @@ final class APIService {
                 }
             }
     }
-    
-    
-    
-    
-    
 }
+

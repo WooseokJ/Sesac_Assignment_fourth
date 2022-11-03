@@ -7,32 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9E8880AB-420F-425A-B669-0675602A6433"
-            shouldBeEnabled = "No"
+            uuid = "3D902FD5-71D4-4C05-93EB-9AF5C5CA08DF"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SesackWeek18/Network/APIService.swift"
+            filePath = "SesackWeek18/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "login()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "24C5C7B1-B487-4BF4-A5CD-56227B16C5C2"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SesackWeek18/Network/APIService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "login()"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "copyOnWrite()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

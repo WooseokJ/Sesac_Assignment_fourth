@@ -15,10 +15,7 @@ final class SignupView: BaseView {
         configure()
         setConstrains()
     }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+
     
     lazy var emailSignupTextField: UITextField = {
         let textfield = UITextField()

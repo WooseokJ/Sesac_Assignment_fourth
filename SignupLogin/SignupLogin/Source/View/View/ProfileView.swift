@@ -16,9 +16,6 @@ final class ProfileView: BaseView {
         setConstrains()
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     lazy var email: UILabel = {
         let label = UILabel()
@@ -30,8 +27,17 @@ final class ProfileView: BaseView {
         return label
     }()
     
+
+    
+    lazy var logutButton: UIButton = {
+        let bt = UIButton()
+        bt.setTitle("로그아웃", for: .normal)
+        bt.backgroundColor = .red
+        return bt
+    }()
+    
     override func configure() {
-        [email,nickname].forEach {
+        [email,nickname,logutButton].forEach {
             self.addSubview($0)
         }
     }
@@ -40,7 +46,6 @@ final class ProfileView: BaseView {
         
         email.snp.makeConstraints {
             $0.top.equalTo(100)
-            
             $0.leading.equalTo(20)
             $0.trailing.equalTo(-20)
             $0.height.equalTo(50)
@@ -48,11 +53,20 @@ final class ProfileView: BaseView {
         
         nickname.snp.makeConstraints {
             $0.top.equalTo(email.snp.bottom).offset(30)
-            
             $0.leading.equalTo(email.snp.leading)
             $0.trailing.equalTo(email.snp.trailing)
             $0.height.equalTo(email.snp.height)
         }
+        
+        logutButton.snp.makeConstraints {
+            $0.top.equalTo(nickname.snp.bottom).offset(30)
+            $0.leading.equalTo(nickname.snp.leading)
+            $0.trailing.equalTo(nickname.snp.trailing)
+            $0.height.equalTo(nickname.snp.height)
+        }
+
+        
+        
     }
     
     

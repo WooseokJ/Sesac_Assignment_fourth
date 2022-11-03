@@ -18,11 +18,6 @@ final class LoginView: BaseView {
         setConstrains()
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    
     lazy var emailTextField: UITextField = {
         let textfield = UITextField()
         textfield.backgroundColor = Color.textFieldBackGround
